@@ -1,0 +1,11 @@
+---
+timeout: 180
+instances: 1
+memory: 1G
+env:
+    SPRING_PROFILES_ACTIVE: cloud
+    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+applications:
+- name: spring-trader
+  path: ${path}web-${version}.jar
+  services: [ discovery-service, circuit-breaker-dashboard, config-server ]
